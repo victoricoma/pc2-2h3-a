@@ -10,5 +10,11 @@
         "senha": "9876",
         "email": "victor@etec.br",
         "cel": "16988887777"
+    },
+    {
+        "nome": "Ana Icoma",
+        "senha": "4488",
+        "email": "ana@etec.br",
+        "cel": "16988337766"
     }
 ]
