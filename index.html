@@ -4,65 +4,427 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>GodPay [O App de Pagamento ESG]</title>
+    <title>GoodPay [O App de Pagamento ESG]</title>
+    <script src="./js/action.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/styles.css">
 </head>
 
 <body>
     <!--NavBar do Site-->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container">
-            <span>
-                <figure class="navbar-brand">
-                    <img src="./img/logo.png" alt="Logo do Site" width="60px" height="60px">
-                </figure>
-            </span>
-            <button class=" navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuNav"
-                aria-controls="menuNav" aria-expanded="false" aria-label="Alterar navegação">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="menuNav">
-                <ul class="navbar-nav ms-auto">
+    <div class="container-xxl" style="margin-bottom: 6em;">
+        <nav class="navbar navbar-dark bg-dark fixed-top">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">
+                    <img src="./img/logo.png" alt="Logo GoodPay" width="50px" height="50px">
+                </a>
+                <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a href="#" class="nav-link">&#127963; Institucional |</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">&#128179; Programa de Pagamento |</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">&#128220; Regras |</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">&#128101; Quem Somos? |</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">&#127793; Plataforma ESG |</a>
+                        <a class="nav-link active" aria-current="page" href="./registro.html">Registre-se</a>
                     </li>
                 </ul>
+                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar"
+                    aria-labelledby="offcanvasDarkNavbarLabel">
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">GoodMenu</h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
+                            aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <form class="d-flex mt-3" role="search">
+                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+                            <button class="btn btn-success" type="submit">Search</button>
+                        </form>
+
+                        <hr class="navbar-expand-xxl" />
+
+                        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                            <li class="nav-item">
+                                <a href="./index.html" class="nav-link">Home do Site</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="./registro.html" class="nav-link">Entre com seu cadastro</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="./produtos.html" class="nav-link">Conheça nossos produtos</a>
+                            </li>
+
+                        </ul>
+
+                    </div>
+                </div>
             </div>
-        </div>
+    </div>
     </nav>
+    </div>
     <!--Hero Site-->
     <section>
-        <div class="bg-light py-5">
-            <div class="container text-center">
-                <h1 class="display-4 fw-bold mb-4">GodPay</h1>
-                <h6 class="lead mb-5">Aplicativo ESG</h6>
-                <p class="lead mb-5">O cashback que faz bem para natureza.</p>
-            </div>
-        </div>
-    </section>
-    <!--Body Site-->
-    <section>
-        <div class="container-xxl bg-info">
+        <div class="container-xxl p-2">
             <div class="row">
-                <div class="col">Coluna 1</div>
-                <div class="col">Coluna 2</div>
-                <div class="col">Coluna 3</div>
+                <div class="col-4">
+                    <div class="card text-bg-success mb-lg-3 p-4" style="max-width: 30rem;">
+                        <div class="card-header fw-bold">GOODPAY - LOGIN</div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="label-email">E-mail</span>
+                            <input type="text" class="form-control" name="email" id="email" aria-describedby="emailHelp"
+                                placeholder="Entre com seu e-mail" />
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="label-senha">Senha</span>
+                            <input type="password" class="form-control" name="password" placeholder="Digite sua senha"
+                                id="senha" />
+                        </div>
+                        <div class="mb-3">
+                            <input type="checkbox" class="form-check-input" name="validacao" id="validacao" />
+                            <label for="" class="form-label">Validação </label>
+                        </div>
+                        <div class="d-grid gap-2">
+                            <button id="btn-enviar" onclick="loginSite()" class="btn btn-outline-light">Login</button>
+                            <button id="btn-registar" onclick="loadRegistro()" class="btn btn-outline-light">Registre-se</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-8">
+                    <div class="bg-light py-5">
+                        <div class="container text-center">
+                            <h1 class="display-4 fw-bold mb-4">GodPay</h1>
+                            <h6 class="lead mb-5">Aplicativo ESG</h6>
+                            <p class="lead mb-5">O cashback que faz bem para natureza.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
+    <!--Carrossel Site-->
+    <div class="container-xxl p-2">
+        <div id="carouselExampleIndicators" class="carousel slide">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+                    aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                    aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+                    aria-label="Slide 3"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3"
+                    aria-label="Slide 4"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="./img/banner1.png" class="d-block w-100" alt="Banner Promocional 1">
+                </div>
+                <div class="carousel-item">
+                    <img src="./img/banner2.png" class="d-block w-100" alt="Banner Promocional 2">
+                </div>
+                <div class="carousel-item">
+                    <img src="./img/banner3.png" class="d-block w-100" alt="Banner Promocional 3">
+                </div>
+                <div class="carousel-item">
+                    <img src="./img/banner4.png" class="d-block w-100" alt="Banner Promocional 4">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Anterior</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Próximo</span>
+            </button>
+        </div>
+    </div>
+    <!--Body Site-->
+    <section id="banner-home-godpay">
+        <div class="container-xxl p-4">
+            <div class="p-5 mb-4 bg-body-tertiary rounded-3">
+                <div class="container-fluid py-5">
+                    <h1 class="display-5 fw-bold">GodPay: Sua Plataforma ESG</h1>
+                    <p class="col-md-8 fs-4">
+                        Plataforma de Sistema onde seus pontos com uso de economia sustentável
+                        vira cashback. Aqui o bem do planeta vira grana para sua família e para
+                        seu futuro.
+                    </p>
+                    <button class="btn btn-primary btn-lg">Crie sua Conta</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="cards-home-godpay">
+        <div class="container-xxl">
+            <div class="row p-4">
+                <div class="col">
+                    <div class="card" style="width: 18rem;">
+                        <img src="./img/frame1.png" class="card-img-top" alt="promoção-1">
+                        <div class="card-body">
+                            <p class="card-text">
+                                Promoção compre créditos com GodPay, ganhe
+                                vantagens nas plataformas Steam e Riot.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card" style="width: 18rem;">
+                        <img src="./img/frame2.png" class="card-img-top" alt="promoção 2">
+                        <div class="card-body">
+                            <p class="card-text">
+                                Com as caixinhas do GodPay seu dinheiro rende mais
+                                para seus planos futuros. Aqui ele rende 106% do CDB e da Poupança.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card" style="width: 18rem;">
+                        <img src="./img/frame3.png" class="card-img-top" alt="promoção 3">
+                        <div class="card-body">
+                            <p class="card-text">
+                                Com os cofrinhos do GodPay, você tranca seu
+                                dinheiro e só com 6 meses ou 1 ano pode retirar seu investimento.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row p-4">
+                <div class="col">
+                    <div class="card" style="width: 18rem;">
+                        <img src="./img/frame4.png" class="card-img-top" alt="promoção-1">
+                        <div class="card-body">
+                            <p class="card-text">
+                                "Controle seus gastos sem abrir mão do que você ama.
+                                Com Goodpay, você tem a liberdade de gastar com responsabilidade e segurança!"
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card" style="width: 18rem;">
+                        <img src="./img/frame5.png" class="card-img-top" alt="promoção 2">
+                        <div class="card-body">
+                            <p class="card-text">
+                                "Mais que dinheiro, é liberdade!
+                                Com o Goodpay, você aproveita cada momento da vida sem preocupações."
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card" style="width: 18rem;">
+                        <img src="./img/frame6.png" class="card-img-top" alt="promoção 3">
+                        <div class="card-body">
+                            <p class="card-text">
+                                "🔥 A Black Friday chegou no Goodpay!
+                                Garanta 50% de desconto e aproveite o melhor da sua carteira digital."
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row p-4">
+                <div class="col">
+                    <div class="card" style="width: 18rem;">
+                        <img src="./img/frame7.png" class="card-img-top" alt="promoção-1">
+                        <div class="card-body">
+                            <p class="card-text">
+                                "Invista no futuro com quem mais importa.
+                                Com Goodpay, sua economia financia a educação do maior projeto da sua vida."
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card" style="width: 18rem;">
+                        <img src="./img/frame8.png" class="card-img-top" alt="promoção 2">
+                        <div class="card-body">
+                            <p class="card-text">
+                                "Equilibre suas finanças sem abrir mão dos prazeres.
+                                Com Goodpay, você reserva um espaço para os seus pequenos pecados."
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card" style="width: 18rem;">
+                        <img src="./img/frame9.png" class="card-img-top" alt="promoção 3">
+                        <div class="card-body">
+                            <p class="card-text">
+                                "Mais que um cartão, uma forma de viver melhor.
+                                Com Goodpay, cada economia no cartão é um ganho para a vida."
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container-xxl p-4">
+            <div class="container text-center">
+                <div class="row p-1">
+                    <div class="col">
+                        <div class="flip-card">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                    <img src="./img/frame1.png" alt="Avatar" style="width:300px;height:300px;">
+                                </div>
+                                <div class="flip-card-back">
+                                    <h1>GAME CASHBACK</h1>
+                                    <p>
+                                        Promoção compre créditos com GoodPay,
+                                        ganhe vantagens nas plataformas Steam e Riot.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="flip-card">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                    <img src="./img/frame2.png" alt="Avatar" style="width:300px;height:300px;">
+                                </div>
+                                <div class="flip-card-back">
+                                    <h1>CAIXINHAS</h1>
+                                    <p>
+                                        Com as caixinhas do GoodPay seu dinheiro rende mais para seus planos futuros.
+                                        Aqui ele rende 106% do CDB e da Poupança.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="flip-card">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                    <img src="./img/frame3.png" alt="Avatar" style="width:300px;height:300px;">
+                                </div>
+                                <div class="flip-card-back">
+                                    <h1>COFRINHOS</h1>
+                                    <p>
+                                        Com os cofrinhos do GoodPay,
+                                        você tranca seu dinheiro e só com 6 meses ou 1
+                                        ano pode retirar seu investimento.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row p-1">
+                    <div class="col">
+                        <div class="flip-card">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                    <img src="./img/frame4.png" alt="Avatar" style="width:300px;height:300px;">
+                                </div>
+                                <div class="flip-card-back">
+                                    <h1>APP MONEY</h1>
+                                    <p>
+                                        "Controle seus gastos sem abrir mão do que você ama.
+                                        Com Goodpay, você tem a liberdade de gastar com responsabilidade e segurança!"
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="flip-card">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                    <img src="./img/frame5.png" alt="Avatar" style="width:300px;height:300px;">
+                                </div>
+                                <div class="flip-card-back">
+                                    <h1>FOR LIFE</h1>
+                                    <p>
+                                        "Mais que dinheiro, é liberdade!
+                                        Com o Goodpay, você aproveita cada momento da vida sem preocupações."
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="flip-card">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                    <img src="./img/frame6.png" alt="Avatar" style="width:300px;height:300px;">
+                                </div>
+                                <div class="flip-card-back">
+                                    <h1>BLACK FRIDAY</h1>
+                                    <p>
+                                        "🔥 A Black Friday chegou no Goodpay!
+                                        Garanta 50% de desconto e aproveite o melhor
+                                        da sua carteira digital."
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row p-1">
+                    <div class="col">
+                        <div class="flip-card">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                    <img src="./img/frame7.png" alt="Avatar" style="width:300px;height:300px;">
+                                </div>
+                                <div class="flip-card-back">
+                                    <h1>FUTURO</h1>
+                                    <p>
+                                        "Invista no futuro com quem mais importa.
+                                        Com Goodpay, sua economia financia a educação do maior projeto da sua vida."
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="flip-card">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                    <img src="./img/frame8.png" alt="Avatar" style="width:300px;height:300px;">
+                                </div>
+                                <div class="flip-card-back">
+                                    <h1>PECADOS</h1>
+                                    <p>
+                                        "Equilibre suas finanças sem abrir mão dos prazeres.
+                                        Com Goodpay, você reserva um espaço para os seus pequenos pecados."
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="flip-card">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                    <img src="./img/frame9.png" alt="Avatar" style="width:300px;height:300px;">
+                                </div>
+                                <div class="flip-card-back">
+                                    <h1>POUPE CARD</h1>
+                                    <p>
+                                        "Mais que um cartão, uma forma de viver melhor.
+                                        Com Goodpay, cada economia no cartão é um ganho para a vida."
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--Rodapé do Site-->
     <footer>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"

@@ -1,0 +1,14 @@
+[
+    {
+        "nome": "Aluno",
+        "senha": "1234",
+        "email": "aluno@etec.br",
+        "cel": "16999999999"
+    },
+    {
+        "nome": "Victor",
+        "senha": "9876",
+        "email": "victor@etec.br",
+        "cel": "16988887777"
+    }
+]
